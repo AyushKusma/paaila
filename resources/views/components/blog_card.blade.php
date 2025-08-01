@@ -17,12 +17,12 @@
                 </ul>
                 <div>
                     <h3 class="title blog-title">
-                        <a href="{{url('blogs/' . $slug)}}">{!!$title!!}</a>
+                        <a href="{{route('blogs.show', $slug)}}">{!!$title!!}</a>
                     </h3>
                     <p>
                         {!!$description!!}
                     </p>
-                    <a href="{{url('blogs/' . $slug)}}" class="ed-primary-btn">Read More <i
+                    <a href="{{route('blogs.show', $slug)}}" class="ed-primary-btn">Read More <i
                             class="fa-solid fa-chevron-right"></i></a>
                 </div>
             </div>

@@ -29,4 +29,10 @@ class Category extends Model
     {
         return $this->hasMany(Blog::class);
     }
+    // where parent category is blog
+    public function scopeBlogCategories($query)
+    {
+        return $query->where('category_id', 1);
+    }
+    
 }

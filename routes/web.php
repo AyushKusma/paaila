@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,12 +18,10 @@ Route::get('/courses/{slug}', function () {
 Route::get('/services', function () {
     return view('pages.services');
 });
-Route::get('/blogs', function () {
-    return view('pages.blogs');
-});
-Route::get('/blogs/{slug}', function () {
-    return view('pages.blogs_detail');
-});
+Route::get('/blogs', [RouteController::class, 'blogs'])->name('blogs.index');
+
+Route::get('/blogs/{slug}', [RouteController::class, 'blogDetails'])->name('blogs.show');
+
 Route::get('/contact', function () {
     return view('pages.contact');
 });

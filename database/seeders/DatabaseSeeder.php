@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'a@a',
             'password' => 'asdfasdf',
         ]);
+
+        // blog should be id: 1
         $categories = [
             'Blog',
         ];
