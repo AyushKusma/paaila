@@ -12,12 +12,5 @@ class Contact extends Model
         'phone',
         'subject',
         'message',
-        'is_read',
-        'service_id',
     ];
-
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
-    }
 }

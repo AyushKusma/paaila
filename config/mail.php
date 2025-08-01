@@ -15,6 +15,9 @@ return [
     */
 
     'default' => env('MAIL_MAILER', 'log'),
+    'admin' => env('MAIL_ADMIN', 'hello@apptechnologies.com'),
+    'contact' => env('MAIL_CONTACT', 'hello@apptechnologies.com'),
+
 
     /*
     |--------------------------------------------------------------------------

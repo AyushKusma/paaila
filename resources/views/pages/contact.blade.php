@@ -13,7 +13,7 @@
             <div class="row g-4">
                 <!-- Contact Form -->
                 <div class="col-lg-7">
-                    <form action="" method="POST">
+                    <form action="{{ route('contact.send') }}" method="POST">
                         @csrf
                         <div class="row g-3">
                             <div class="col-sm-6">

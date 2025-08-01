@@ -47,19 +47,7 @@ class ContactResource extends Resource
                                 ->required()
                                 ->columnSpanFull(),
                         ]),
-                ])->columnSpan(2), // Group spans 2 columns
-
-                Forms\Components\Group::make([
-                    Forms\Components\Section::make('Additional Information')
-                        ->schema([
-                            Forms\Components\Toggle::make('is_read')
-                                ->label('Mark as Read')
-                                ->required(),
-                            Forms\Components\TextInput::make('service_id')
-                                ->label('Service ID')
-                                ->numeric(),
-                        ]),
-                ])->columnSpan(1), // Group spans 1 column
+                ])->columnSpan(3), // Group spans 2 columns
             ])->columns(3); // Main form has 3 columns
 
     }
@@ -76,11 +64,6 @@ class ContactResource extends Resource
                     ->searchable()->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('subject')
                     ->searchable(),
-                Tables\Columns\IconColumn::make('is_read')
-                    ->boolean(),
-                Tables\Columns\TextColumn::make('service.name')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -4,9 +4,7 @@ use App\Http\Controllers\RouteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RouteController::class, 'index'])->name('home');
-Route::get('/about-us', function () {
-    return view('pages.about');
-});
+Route::get('/about-us', [RouteController::class, 'about'])->name('about');
 Route::get('/courses', function () {
     return view('pages.courses');
 });
@@ -21,3 +19,5 @@ Route::get('/blogs/{slug}', [RouteController::class, 'blogDetails'])->name('blog
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+
+Route::post('/contact', [RouteController::class, 'sendContact'])->name('contact.send');
