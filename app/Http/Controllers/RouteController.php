@@ -17,7 +17,11 @@ class RouteController extends Controller
         $faqs = Faq::all();
         $instructors = Team::all();
         $testimonials = Testimonial::all();
-        return view('pages.landing', ['accordionData' => $faqs, 'instructors' => $instructors, 'testimonials' => $testimonials]);
+        $blogs = Blog::getRecentBlogs(limit: 3);
+        if ($blogs->isEmpty()) {
+            $blogs = Blog::getDummyData();
+        }
+        return view('pages.landing', ['accordionData' => $faqs, 'instructors' => $instructors, 'testimonials' => $testimonials, 'blogs' => $blogs]);
     }
     public function blogs()
     {
