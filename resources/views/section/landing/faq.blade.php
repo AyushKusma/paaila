@@ -40,10 +40,14 @@
                         <h4 class="student">Instructor</h4>
                         <div class="faq-thumb-list-wrap">
                             <ul class="faq-thumb-list">
+                                @forelse ($instructors as $instructor)
+                                    <li class="rounded-full overflow-hidden"><img src="{{ asset($instructor->image_url) }}" alt="{{ $instructor->name }}" /></li>
+                                @empty
                                 <li><img src="{{ asset('images/faq-thumb-1.png') }}" alt="faq" /></li>
                                 <li><img src="{{ asset('images/faq-thumb-2.png') }}" alt="faq" /></li>
                                 <li><img src="{{ asset('images/faq-thumb-3.png') }}" alt="faq" /></li>
-                                <li><img src="{{ asset('images/faq-thumb-4.png') }}" alt="faq" /></li>
+                                <li><img src="{{ asset('images/faq-thumb-4.png') }}" alt="faq" /></li>    
+                                @endforelse
                                 <li class="number">25+</li>
                             </ul>
                             <p><span>200+</span> <br />Instructor</p>
