@@ -12,6 +12,10 @@ class InstructorsRelationManager extends RelationManager
 {
     protected static string $relationship = 'instructors';
 
+    // Customize the plural and singular labels
+    protected static ?string $pluralModelLabel = 'Instructors';
+    protected static ?string $modelLabel = 'Instructor';
+
     public function table(Table $table): Table
     {
         return $table
@@ -28,14 +32,17 @@ class InstructorsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\AttachAction::make(),
+                Tables\Actions\AttachAction::make()
+                    ->label('Attach Instructor'),
             ])
             ->actions([
-                Tables\Actions\DetachAction::make(),
+                Tables\Actions\DetachAction::make()
+                    ->label('Detach Instructor'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DetachBulkAction::make(),
+                    Tables\Actions\DetachBulkAction::make()
+                        ->label('Detach Instructors'),
                 ]),
             ]);
     }

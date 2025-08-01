@@ -15,7 +15,10 @@ use Filament\Tables\Table;
 class CourseResource extends Resource
 {
     protected static ?string $model = Course::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
+
+    protected static ?string $navigationGroup = 'Content Management';
 
     public static function form(Form $form): Form
     {
@@ -26,10 +29,6 @@ class CourseResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('duration')
                     ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('slug')
-                    ->required()
-                    ->unique()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('level')
                     ->required()
@@ -50,12 +49,10 @@ class CourseResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('duration'),
-                Tables\Columns\TextColumn::make('slug')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('level'),
                 Tables\Columns\TextColumn::make('category.name')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('duration'),
+                Tables\Columns\TextColumn::make('level'),
             ])
             ->filters([
                 Tables\Filters\SelectFilter::make('category')

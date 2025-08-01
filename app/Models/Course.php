@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\GenerateSlug;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Course extends Model
 {
+    use GenerateSlug;
+
     protected $fillable = [
         'name',
         'duration',
