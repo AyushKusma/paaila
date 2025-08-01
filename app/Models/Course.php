@@ -17,10 +17,19 @@ class Course extends Model
         'slug',
         'level',
         'category_id',
-        'description'
+        'description',
+        'image',
+        'meta_title',
+        'meta_description',
+        'meta_keywords',
     ];
 
     protected $hidden = ['created_at', 'updated_at'];
+
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/' . $this->image) : asset('images/default-blog.png');
+    }
 
     public function category(): BelongsTo
     {

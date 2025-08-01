@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         // blog should be id: 1
         $categories = [
             'Blog',
+            'Course'
         ];
 
 
