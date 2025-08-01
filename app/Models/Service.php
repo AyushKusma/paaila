@@ -28,8 +28,32 @@ class Service extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function contact()
+    public function getImageUrlAttribute()
     {
-        return $this->hasMany(Contact::class);
+        return $this->image ? asset('storage/' . $this->image) : asset('images/default-blog.png');
+    }
+
+    public  static function getDummyData()
+    {
+        return [
+            [
+                'name' => 'Personal Growth',
+                'image_url' => 'images/course-img-1.png',
+                'slug' => '/services',
+                'summary' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            ],
+            [
+                'name' => 'Skill-Based Training',
+                'image_url' => 'images/course-img-2.png',
+                'slug' => 'course-details.html',
+                'summary' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            ],
+            [
+                'name' => 'Education Consultancy',
+                'image_url' => 'images/course-img-2.png',
+                'slug' => 'course-details.html',
+                'summary' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+            ],
+        ];
     }
 }

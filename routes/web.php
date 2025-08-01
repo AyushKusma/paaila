@@ -15,11 +15,9 @@ Route::get('/courses', function () {
 Route::get('/courses/{slug}', function () {
     return view('pages.courses_detail');
 });
-Route::get('/services', function () {
-    return view('pages.services');
-});
-Route::get('/blogs', [RouteController::class, 'blogs'])->name('blogs.index');
+Route::get('/services', [RouteController::class, 'services'])->name('services.index');
 
+Route::get('/blogs', [RouteController::class, 'blogs'])->name('blogs.index');
 Route::get('/blogs/{slug}', [RouteController::class, 'blogDetails'])->name('blogs.show');
 
 Route::get('/contact', function () {

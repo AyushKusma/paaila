@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -28,5 +29,15 @@ class RouteController extends Controller
         $categories = Category::blogCategories()->get();
         $recentBlogs = Blog::getRecentBlogs(limit: 3, except: $blog['id'] ?? null);
         return view('pages.blogs_detail', ['blog' => $blog, 'categories' => $categories, 'recentBlogs' => $recentBlogs]);
+    }
+
+    public function services()
+    {
+        $services = Service::all();
+
+        if ($services->isEmpty()) {
+            $services = Service::getDummyData();
+        }
+        return view('pages.services', ['data' => $services]);
     }
 }
