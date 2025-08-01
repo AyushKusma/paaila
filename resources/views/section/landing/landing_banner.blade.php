@@ -1,5 +1,6 @@
 <section class="hero-section-2 overflow-hidden"
-    style="background-image: linear-gradient(to bottom right, #2e7de230, transparent, transparent);">
+    style="background-image: linear-gradient(to bottom right, #2e7de230, transparent, transparent);"
+    >
     <div class="hero-bg-wrap">
         <div class="hero-bg"><img src="/images/hero-bg.png" alt="hero" /></div>
         <div class="hero-bg-shape">

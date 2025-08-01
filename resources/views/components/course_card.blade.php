@@ -7,24 +7,23 @@
         </div>
         <div class="course-content">
             <div>
-                <span class=" tags">{{ $course['tags'] }}</span>
                 <h3 class="title">
                     <a href="{{ url('/courses/' . $course['slug']) }}">{{ $course['title'] }}</a>
                 </h3>
             </div>
             <div>
-                <ul class="course-list">
+                {{-- <ul class="course-list">
                     <li><i class="fa-solid fa-file"></i>Lesson {{ $course['lesson'] }}</li>
                     <li><i class="fa-solid fa-user"></i>Students {{ $course['students'] }}</li>
                     <li><i class="fa-solid fa-eye"></i>View: {{ $course['views'] }}</li>
-                </ul>
+                </ul> --}}
                 <div class="course-author-box" style="border-bottom: 1px solid #e0e5eb;">
-                    <ul class="course-review">
+                    {{-- <ul class="course-review">
                         @for ($i = 0; $i < 5; $i++)
                             <li><i class="fa-sharp fa-solid fa-star"></i></li>
                         @endfor
                         <li class="point">({{ $course['rating'] }})</li>
-                    </ul>
+                    </ul> --}}
                     <div class="course-author">
                         <div class="author-img">
                             <img src="{{ $course['author_image'] }}" alt="course" />
@@ -36,7 +35,7 @@
                     </div>
                 </div>
                 <div class="bottom-content mt-20">
-                    <span class="price">{{ $course['price'] }}</span>
+                    <span class="price">3 Months</span>
                     <a href="{{ url('/courses/' . $course['slug']) }}" class="course-btn">View Details</a>
                 </div>
             </div>
