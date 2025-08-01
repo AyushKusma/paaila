@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Service;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class RouteController extends Controller
@@ -13,7 +14,8 @@ class RouteController extends Controller
     public function index()
     {
         $faqs = Faq::all();
-        return view('pages.landing', ['accordionData' => $faqs]);
+        $instructors = Team::all();
+        return view('pages.landing', ['accordionData' => $faqs, 'instructors' => $instructors]);
     }
     public function blogs()
     {

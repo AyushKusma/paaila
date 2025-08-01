@@ -1,42 +1,28 @@
 @php
-    $data = [
+if($instructors->isEmpty()){
+$instructors = [
         [
-            'image' => 'images/team-5.png',
+            'image_url' => 'images/team-5.png',
             'name' => 'William Samuel',
-            'designation' => 'Instructor',
-            'fb_link' => '#',
-            'insta_link' => '#',
-            'x_link' => '#',
-            'whatsapp_link' => '#',
+            'position' => 'Instructor',
         ],
         [
-            'image' => 'images/team-6.png',
+            'image_url' => 'images/team-6.png',
             'name' => 'Olivia Sophia',
-            'designation' => 'Instructor',
-            'fb_link' => '#',
-            'insta_link' => '#',
-            'x_link' => '#',
-            'whatsapp_link' => '#',
+            'position' => 'Instructor',
         ],
         [
-            'image' => 'images/team-7.png',
+            'image_url' => 'images/team-7.png',
             'name' => 'Jacob Mason',
-            'designation' => 'Instructor',
-            'fb_link' => '#',
-            'insta_link' => '#',
-            'x_link' => '#',
-            'whatsapp_link' => '#',
+            'position' => 'Instructor',
         ],
         [
-            'image' => 'images/team-8.png',
+            'image_url' => 'images/team-8.png',
             'name' => 'Isabella Grace',
-            'designation' => 'Instructor',
-            'fb_link' => '#',
-            'insta_link' => '#',
-            'x_link' => '#',
-            'whatsapp_link' => '#',
+            'position' => 'Instructor',
         ],
     ];
+}
 @endphp
 
 <section class="team-section pb-120">
@@ -46,11 +32,11 @@
     </div>
     <div style="display: flex; align-items:center; justify-content: center;" class="team-container">
         <div class="row gy-xl-0 gy-4 justify-content-center container">
-            @foreach ($data as $item)
-                <x-instructor_card image="{{$item['image']}}" name="{{$item['name']}}"
-                    designation="{{$item['designation']}}" fb_link="{{$item['fb_link']}}"
-                    insta_link="{{$item['insta_link']}}" x_link="{{$item['x_link']}}"
-                    whatsapp_link="{{$item['whatsapp_link']}}" />
+            @foreach ($instructors as $item)
+                <x-instructor_card image="{{$item['image_url']}}" name="{{$item['name']}}"
+                    designation="{{$item['position']}}" fb_link="{{$item['facebook'] ?? null}}"
+                    insta_link="{{$item['instagram'] ?? null}}" x_link="{{$item['twitter'] ?? null}}"
+                    whatsapp_link="{{$item['whatsapp'] ?? null}}" />
             @endforeach
         </div>
     </div>
