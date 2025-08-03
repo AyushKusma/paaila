@@ -6,6 +6,7 @@ use App\Mail\ContactMail;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\Course;
 use App\Models\Faq;
 use App\Models\Service;
 use App\Models\Team;
@@ -21,10 +22,11 @@ class RouteController extends Controller
         $instructors = Team::all();
         $testimonials = Testimonial::all();
         $blogs = Blog::getRecentBlogs(limit: 3);
+        $courses = Course::getRecentCourses();
         if ($blogs->isEmpty()) {
             $blogs = Blog::getDummyData();
         }
-        return view('pages.landing', ['accordionData' => $faqs, 'instructors' => $instructors, 'testimonials' => $testimonials, 'blogs' => $blogs]);
+        return view('pages.landing', ['accordionData' => $faqs, 'instructors' => $instructors, 'testimonials' => $testimonials, 'blogs' => $blogs, 'courses' => $courses]);
     }
     public function about()
     {
@@ -61,6 +63,17 @@ class RouteController extends Controller
             $services = Service::getDummyData();
         }
         return view('pages.services', ['data' => $services]);
+    }
+
+    public function courses()
+    {
+        $courses = Course::all();
+        return view('pages.courses', compact('courses'));
+    }
+
+    public function courseDetails(Course $course)
+    {
+        return view('pages.courses_detail', ['course' => $course]);
     }
 
     public function sendContact(Request $request)

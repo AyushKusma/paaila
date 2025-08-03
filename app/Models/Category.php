@@ -34,5 +34,9 @@ class Category extends Model
     {
         return $query->where('category_id', 1);
     }
-    
+
+    public function scopeCourseCategories($query)
+    {
+        return $query->where('category_id', 2);
+    }
 }

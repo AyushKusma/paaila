@@ -26,6 +26,8 @@ class Course extends Model
 
     protected $hidden = ['created_at', 'updated_at'];
 
+    protected $with = ['category', 'instructors'];
+
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/' . $this->image) : asset('images/default-blog.png');
@@ -39,5 +41,14 @@ class Course extends Model
     public function instructors(): BelongsToMany
     {
         return $this->belongsToMany(Team::class, 'instructor_courses');
+    }
+
+    public static function getRecentCourses($limit = 3, $except = null)
+    {
+        $courses = Course::query();
+        if ($except) {
+            $courses->where('id', '!=', $except);
+        }
+        return $courses->latest()->paginate($limit);
     }
 }

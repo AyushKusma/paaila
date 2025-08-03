@@ -7,16 +7,16 @@
             <div class="col-xl-9 col-lg-12">
                 <div class="course-details-content">
                     <div class="course-details-img">
-                        <img src="/images/course-details-img.png" alt="course">
+                        <img src="{{ $course->image_url }}" alt="{{ $course->name }}">
                     </div>
                     <div class="details-inner">
-                        <h2 class="title">User Experience Design Essentials - Adobe XD UI UX De1sign <br> Course For
-                            Limted Time</h2>
+                        <h2 class="title">{{ $course->name }}</h2>
                         <ul class="course-details-list">
-                            <li><img src="{{asset('/images/course-details-author.png')}}"
-                                    alt="author"><span>Instructor:</span> Kevin
-                                Perry</li>
-                            <li><i class="fa-solid fa-tags"></i>Web Development</li>
+                            @if ($course->instructors->count() > 0)    
+                            <li><img src="{{ $course->instructors[0]->image_url }}" alt="{{ $course->name }}"><span>Instructor:</span>
+                                {{$course->instructors[0]->name }}</li>
+                            @endif
+                            <li><i class="fa-solid fa-tags"></i>{{ $course->category->name }}</li>
                         </ul>
                     </div>
                     <div class="course-details-tab">
@@ -33,93 +33,40 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                aria-labelledby="home-tab">
                                 <div class="tab-overview">
                                     <h3 class="title">Description</h3>
-                                    <p class="mb-30">Rapidiously develop parallel e-markets via worldwide paradigms.
-                                        Quickly synergize cutting-edge scenarios and professional results. Assertively
-                                        deliver cross-media results before client-centric results. Uniquely initiate
-                                        intuitive communities through process-centric internal or "organic" sources.
-                                        Energistically reinvent distinctive value via parallel services.
-                                        Phosfluorescently deploy extensive paradigms vis-a-vis cross-unit manufactured
-                                        products. Uniquely coordinate impactful services whereas team building
-                                        e-services. Globally grow multimedia based benefits vis-a-vis client-based
-                                        niches.
-                                    </p>
-                                    <p class="mb-40">Professionally expedite synergistic technology without
-                                        out-of-the-box human capital. Enthusiastically coordinate state of the art
-                                        leadership after professional manufactured products. Distinctively enhance
-                                        future-proof e-services whereas functionalized partnerships. Quickly streamline
-                                        focused paradigms via orthogonal "outside the box" thinking. Rapidiously
-                                        administrate 2.0 total linkage for cross-platform channels.</p>
-                                    <h3 class="title">What Will You Learn?</h3>
-                                    <p class="mb-0">Quickly synergize cutting-edge scenarios and professional results.
-                                        Assertively deliver cross-media results before client-centric results. Uniquely
-                                        initiate intuitive communities through process-centric internal or "organic"
-                                        sources. Energistically reinvent distinctive value via parallel services
-                                        extensive paradigms cross-unit manufactured products.</p>
+                                    <p>{!! str()->sanitizeHtml($course->description) !!}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                                <div class="row team-wrap-2 gy-lg-0 gy-4 justify-content-center">
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="team-item-3 team-item-5">
-                                            <div class="team-thumb">
-                                                <div class="shape"><img src="/images/team-shape-3.png" alt="team"></div>
-                                                <div class="team-men">
-                                                    <img src="/images/team-men-1.png" alt="team">
+                                @foreach ($course['instructors'] as $instructor)
+                                    <div class="row team-wrap-2 gy-lg-0 gy-4 justify-content-center ">
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="team-item-3 team-item-5 overflow-hidden">
+                                                <div class="team-thumb">
+                                                    <div class="shape"><img src="/images/team-shape-3.png"
+                                                            alt="shape"></div>
+                                                    <div class="team-men">
+                                                        <img src="{{ $instructor->image_url }}"
+                                                            alt="{{ $instructor->name }}">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="team-content">
-                                                <h3 class="title"><a href="team-details.html">Mason D. Logan</a></h3>
-                                                <span>IT Trainier</span>
-                                                <ul class="social-list">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                                </ul>
+                                                <div class="team-content">
+                                                    <h3 class="title">{{ $instructor->name }}</h3>
+                                                    <span>{{ $instructor->position }}</span>
+                                                    <ul class="social-list">
+                                                        <li><a href="{{ $instructor->facebook }}"><i
+                                                                    class="fab fa-facebook-f"></i></a></li>
+                                                        <li><a href="{{ $instructor->instagram }}"><i
+                                                                    class="fab fa-instagram"></i></a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="team-item-3 team-item-5">
-                                            <div class="team-thumb">
-                                                <div class="shape"><img src="/images/team-shape-3.png" alt="team"></div>
-                                                <div class="team-men">
-                                                    <img src="/images/team-men-2.png" alt="team">
-                                                </div>
-                                            </div>
-                                            <div class="team-content">
-                                                <h3 class="title"><a href="team-details.html">Scarlett Hannah</a></h3>
-                                                <span>IT Trainier</span>
-                                                <ul class="social-list">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="team-item-3 team-item-5">
-                                            <div class="team-thumb">
-                                                <div class="shape"><img src="/images/team-shape-3.png" alt="team"></div>
-                                                <div class="team-men">
-                                                    <img src="/images/team-men-3.png" alt="team">
-                                                </div>
-                                            </div>
-                                            <div class="team-content">
-                                                <h3 class="title"><a href="team-details.html">Chloe Smith</a></h3>
-                                                <span>IT Trainier</span>
-                                                <ul class="social-list">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -129,9 +76,13 @@
                 <div class="course-sidebar sticky-widget">
                     <h4 class="sidebar-title">Course Information</h4>
                     <ul class="course-sidebar-list">
-                        <li><i class="fa-solid fa-house-chimney"></i>Instructor: <span>Kevin Perry</span></li>
-                        <li><i class="fa-solid fa-clock"></i>Duration: <span>15h 30m 36s</span></li>
-                        <li><i class="fa-solid fa-tag"></i>Course level: <span>Beginners</span></li>
+                        @if ($course->instructors->count() > 0)
+                            <li><i class="fa-solid fa-house-chimney"></i>Instructor:
+                                <span>{{ $course->instructors[0]->name }}</span>
+                            </li>
+                        @endif
+                        <li><i class="fa-solid fa-clock"></i>Duration: <span>{{ $course->duration }}</span></li>
+                        <li><i class="fa-solid fa-tag"></i>Course level: <span>{{ $course->level }}</span></li>
                     </ul>
                     <div class="share-btn">
                         <button class="ed-primary-btn"><i class="fa-solid fa-share-nodes"></i>Share This

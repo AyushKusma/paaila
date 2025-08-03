@@ -5,12 +5,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RouteController::class, 'index'])->name('home');
 Route::get('/about-us', [RouteController::class, 'about'])->name('about');
-Route::get('/courses', function () {
-    return view('pages.courses');
-});
-Route::get('/courses/{slug}', function () {
-    return view('pages.courses_detail');
-});
+Route::get('/courses', [RouteController::class, 'courses'])->name('courses.index');
+Route::get('/courses/{course:slug}', [RouteController::class, 'courseDetails'])->name('courses.show');
 Route::get('/services', [RouteController::class, 'services'])->name('services.index');
 
 Route::get('/blogs', [RouteController::class, 'blogs'])->name('blogs.index');
