@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'a@a',
-            'password' => 'asdfasdf',
+            'name' => 'Admin',
+            'email' => 'admin@paaila.edu.np',
+            'password' => 'p@@ila8842',
         ]);
 
         // blog should be id: 1
