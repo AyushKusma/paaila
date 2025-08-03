@@ -27,12 +27,21 @@ class DatabaseSeeder extends Seeder
             'Blog',
             'Course'
         ];
-
-
         foreach ($categories as $category) {
             Category::create(
                 [
                     'name' => $category,
+                ]
+            );
+        }
+
+        $courseCategories = ['UI/UX Design Service', 'Software Development', 'Digital Marketing', 'Self Management', 'Application Development', 'UI/UX Graphic Design'];
+
+        foreach ($courseCategories as $courseCategory) {
+            Category::create(
+                [
+                    'name' => $courseCategory,
+                    'category_id' => 2, // Course category
                 ]
             );
         }

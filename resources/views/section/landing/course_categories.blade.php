@@ -3,32 +3,32 @@
         [
             "image" => "images/feature-1.png",
             "title" => "UI/UX Design Service",
-            "slug" => "course-details.html",
+            "slug" => "uiux-design-service",
         ],
         [
             "image" => "images/feature-2.png",
             "title" => "Software Development",
-            "slug" => "course-details.html",
+            "slug" => "software-development",
         ],
         [
             "image" => "images/feature-3.png",
             "title" => "Digital Marketing",
-            "slug" => "course-details.html",
+            "slug" => "digital-marketing",
         ],
         [
             "image" => "images/feature-4.png",
             "title" => "Self Management",
-            "slug" => "course-details.html",
+            "slug" => "self-management",
         ],
         [
             "image" => "images/feature-5.png",
             "title" => "Application Development",
-            "slug" => "course-details.html",
+            "slug" => "application-development",
         ],
         [
             "image" => "images/feature-6.png",
             "title" => "UI/UX Graphic Design",
-            "slug" => "course-details.html",
+            "slug" => "uiux-graphic-design",
         ]
     ];
 @endphp
