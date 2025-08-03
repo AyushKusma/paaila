@@ -48,7 +48,7 @@
                                 <img src="{{ $item['image'] }}" alt="feature" />
                             </div>
                             <h3 class="title">{{ $item['title'] }}</h3>
-                            <a href="{{ $item['slug'] }}" class="feature-btn">
+                            <a href="{{ route('courses.index') }}?category={{ $item['slug'] }}" class="feature-btn">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </a>
                         </div>

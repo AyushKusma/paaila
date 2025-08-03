@@ -66,9 +66,16 @@ class RouteController extends Controller
         return view('pages.services', ['data' => $services]);
     }
 
-    public function courses()
+    public function courses(Request $request)
     {
-        $courses = Course::all();
+        $category = $request->query('category');
+        if ($category) {
+            $courses = Course::whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
+            })->get();
+        } else {
+            $courses = Course::all();
+        }
         return view('pages.courses', compact('courses'));
     }
 
