@@ -69,6 +69,46 @@
                                 <li><a href="/">Home</a></li>
                                 <li><a href="/about-us">About Us</a></li>
                                 <li><a href="/courses">Courses</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Consultancy <i class="fas fa-chevron-down"></i></a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#">
+                                                <img src="{{ asset('images/country-flag/aus.png') }}" alt="Australia Flag" class="flag-icon">
+                                                Australia <br>
+                                                <span>Study, Work, Immigration</span>
+                                            </a>
+                                        </li>
+                                        <li >
+                                            <a href="#">
+                                                <img src="{{ asset('images/country-flag/uk.png') }}" alt="UK Flag" class="flag-icon">
+                                                United Kingdom <br>
+                                                <span>Study, Work, Immigration</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="{{ asset('images/country-flag/us.png') }}" alt="USA Flag" class="flag-icon">
+                                                United States <br>
+                                                <span>Study, Work, Immigration</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="{{ asset('images/country-flag/canada.png') }}" alt="Canada Flag" class="flag-icon"> Canada
+                                                <br>
+                                                <span>Study, Work, Immigration</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="{{ asset('images/country-flag/new-z-land.png') }}" alt="New Zealand Flag"
+                                                    class="flag-icon"> New Zealand <br>
+                                                <span>Study, Work, Immigration</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li><a href="/services">Services</a></li>
                                 <li><a href="/blogs">Blog</a></li>
                                 <li><a href="/contact">Contact</a></li>

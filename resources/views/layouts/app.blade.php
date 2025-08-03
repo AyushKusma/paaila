@@ -13,7 +13,7 @@
     <meta property="og:title" content="Paaila Institute - Empowering Your Future">
     <meta property="og:description"
         content="Paaila Institute offers computer training, skills development, internships, career counseling, and consultancy services to equip individuals with the tools for success in a global landscape.">
-    <meta name="og:image" content="{{asset("/logo/PAAILA_LOGO-01.png")}}">
+    <meta name="og:image" content="{{ asset('/logo/PAAILA_LOGO-01.png') }}">
     <meta property="og:url" content="https://paaila.edu.np">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Paaila Institute">
@@ -22,24 +22,24 @@
     <meta name="twitter:title" content="Paaila Institute - Empowering Your Future">
     <meta name="twitter:description"
         content="Paaila Institute offers computer training, skills development, internships, career counseling, and consultancy services to equip individuals with the tools for success in a global landscape.">
-    <meta name="twitter:image" content="{{asset("/logo/PAAILA_LOGO-01.png")}}">
+    <meta name="twitter:image" content="{{ asset('/logo/PAAILA_LOGO-01.png') }}">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Place favicon.ico in the root directory -->
     <link rel="shortcut icon" type="image/x-icon" href="/logo/PAAILA_LOGO-07.png" />
 
     <!-- CSS here -->
-    <link rel="stylesheet" href={{asset("/fontawesome-free-6.7.1-web/css/all.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/bootstrap.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/venobox.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/animate.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/keyframe-animation.css")}} />
-    <link rel="stylesheet" href={{asset("/css/odometer.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/nice-select.css")}} />
-    <link rel="stylesheet" href={{asset("/css/daterangepicker.css")}} />
-    <link rel="stylesheet" href={{asset("/css/swiper.min.css")}} />
-    <link rel="stylesheet" href={{asset("/css/main.css")}} />
-    <link rel="stylesheet" href={{asset("/css/custom.css")}} />
+    <link rel="stylesheet" href={{ asset('/fontawesome-free-6.7.1-web/css/all.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/bootstrap.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/venobox.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/animate.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/keyframe-animation.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/odometer.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/nice-select.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/daterangepicker.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/swiper.min.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/main.css') }} />
+    <link rel="stylesheet" href={{ asset('/css/custom.css') }} />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -54,6 +54,48 @@
     </div>
 
     <x-header />
+    <style>
+        .menu-item-has-children {
+            margin-right: 0 !important;
+        }
+
+        .menu-item-has-children:after {
+            content: none !important;
+        }
+
+        .sub-menu li a {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+            /* Smooth transition for text color */
+        }
+
+        .sub-menu li a:hover {
+            /* No background change unless desired */
+        }
+
+        .sub-menu li a:hover span {
+            color: #fff;
+            /* Only the span text turns white on hover */
+        }
+
+        .flag-icon {
+            width: 20px;
+            height: 15px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        .sub-menu li a span {
+            display: block;
+            font-size: 0.8em;
+            color: #666;
+            /* Default color */
+        }
+    </style>
 
     <div class="mobile-side-menu">
         <div class="side-menu-content">
