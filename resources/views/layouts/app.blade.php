@@ -54,6 +54,7 @@
     </div>
 
     <x-header />
+    {{-- header styles --}}
     <style>
         .menu-item-has-children {
             margin-right: 0 !important;
