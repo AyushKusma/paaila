@@ -12,5 +12,11 @@ class Contact extends Model
         'phone',
         'subject',
         'message',
+        'consultancy_id',
     ];
+
+    public function consultancy()
+    {
+        return $this->belongsTo(Consultancy::class);
+    }
 }

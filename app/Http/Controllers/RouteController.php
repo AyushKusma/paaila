@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\ContactMail;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Consultancy;
 use App\Models\Contact;
 use App\Models\Course;
 use App\Models\Faq;
@@ -79,17 +80,20 @@ class RouteController extends Controller
     public function sendContact(Request $request)
     {
         try {
-
             $validated = $request->validate([
-                'firstName' => 'required|string|max:255',
-                'lastName' => 'required|string|max:255',
+                'firstName' => 'sometimes|string|max:255',
+                'lastName' => 'sometimes|string|max:255',
+                'name' => 'sometimes|string|max:255',
+                'consultancy_id' => 'sometimes|exists:consultancies,id',
                 'email' => 'required|email|max:255',
-                'message' => 'required|string',
+                'message' => 'sometimes|string',
                 'phone' => 'sometimes|string|max:20',
                 'subject' => 'sometimes|string|max:255',
             ]);
-            // Create a new contact entry
-            $contact = Contact::create($validated + ['name' => $validated['firstName'] . ' ' . $validated['lastName']]);
+            $name = isset($validated['firstName']) ? $validated['firstName'] . ' ' . $validated['lastName'] : $validated['name'] ?? 'Anonymous';
+
+            $validated['name'] = $name;
+            $contact = Contact::create($validated);
 
             Mail::to($contact->email)->queue(new ContactMail($contact, admin: 0));
             Mail::to(config('mail.admin'))->queue(new ContactMail($contact, admin: 1));
@@ -99,10 +103,19 @@ class RouteController extends Controller
                 'message' => 'Thank you for your message. We will get back to you soon.',
             ]);
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return back()->with([
                 'type' => 'error',
                 'message' => 'Something went wrong. Please try again later.',
             ]);
         }
+    }
+    public function consultancy($slug)
+    {
+        $consultancy = Consultancy::where('slug', $slug)->first();
+        if (!$consultancy) {
+            abort(404);
+        }
+        return view('pages.consultancy', ['consultancy' => $consultancy]);
     }
 }

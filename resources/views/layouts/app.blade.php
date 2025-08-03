@@ -41,6 +41,8 @@
     <link rel="stylesheet" href={{ asset('/css/main.css') }} />
     <link rel="stylesheet" href={{ asset('/css/custom.css') }} />
 
+    @yield('head')
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
