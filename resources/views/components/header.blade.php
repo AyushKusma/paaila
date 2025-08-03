@@ -72,6 +72,15 @@
                                 <li class="menu-item-has-children">
                                     <a href="#">Consultancy <i class="fas fa-chevron-down"></i></a>
                                     <ul class="sub-menu">
+                                        @forelse ( $consultancy as $item )
+                                            <li>
+                                            <a href="{{ route('consultancy.show', $item->slug) }}">
+                                                <img src="{{ $item->image_url }}" alt="{{ $item->name }} Flag" class="flag-icon">
+                                                {{ $item->name }}<br>
+                                                <span>{{ $item->summary }}</span>
+                                            </a>
+                                        </li>
+                                        @empty
                                         <li>
                                             <a href="#">
                                                 <img src="{{ asset('images/country-flag/aus.png') }}" alt="Australia Flag" class="flag-icon">
@@ -107,6 +116,8 @@
                                                 <span>Study, Work, Immigration</span>
                                             </a>
                                         </li>
+                                        @endforelse
+
                                     </ul>
                                 </li>
                                 <li><a href="/services">Services</a></li>

@@ -9,7 +9,7 @@ Route::get('/courses', [RouteController::class, 'courses'])->name('courses.index
 Route::get('/courses/{course:slug}', [RouteController::class, 'courseDetails'])->name('courses.show');
 Route::get('/services', [RouteController::class, 'services'])->name('services.index');
 
-Route::get('/consultancy/{consultancy:slug}', [RouteController::class, 'consultancy'])->name('consultancy.index');
+Route::get('/consultancy/{consultancy:slug}', [RouteController::class, 'consultancy'])->name('consultancy.show');
 
 Route::get('/blogs', [RouteController::class, 'blogs'])->name('blogs.index');
 Route::get('/blogs/{slug}', [RouteController::class, 'blogDetails'])->name('blogs.show');
