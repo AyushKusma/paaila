@@ -16,6 +16,6 @@ Route::get('/blogs/{slug}', [RouteController::class, 'blogDetails'])->name('blog
 
 Route::get('/contact', function () {
     return view('pages.contact');
-});
+})->name('contact');
 
 Route::post('/contact', [RouteController::class, 'sendContact'])->name('contact.send');

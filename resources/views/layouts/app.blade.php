@@ -44,13 +44,10 @@
     @yield('head')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
 </head>
 
 <body>
-
     <div class="tu-preloader">
         <div class="tu-preloader_holder">
             <img src="/logo/PAAILA_LOGO-07.png" alt="laoder img" />

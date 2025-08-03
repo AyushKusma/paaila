@@ -48,7 +48,7 @@
                         <h3 class="widget-header">Navigation Links</h3>
                         <ul class="footer-list">
                             <li>
-                                <a href="/about">
+                                <a href="{{ route('about') }}">
                                     <i class="fa-solid fa-chevron-right fa-sm"></i>
                                     About Us
                                 </a>
@@ -85,15 +85,15 @@
                         <h3 class="widget-header">Useful Links</h3>
                         <ul class="footer-list">
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('courses.index') }}">
                                     <i class="fa-solid fa-chevron-right fa-sm"></i>
                                     All Courses
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ route('home') }}">
                                     <i class="fa-solid fa-chevron-right fa-sm"></i>
-                                    Digital Marketing
+                                    Faq
                                 </a>
                             </li>
                             <li>
