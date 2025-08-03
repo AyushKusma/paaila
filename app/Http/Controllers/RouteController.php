@@ -103,7 +103,6 @@ class RouteController extends Controller
                 'message' => 'Thank you for your message. We will get back to you soon.',
             ]);
         } catch (\Exception $e) {
-            dd($e->getMessage());
             return back()->with([
                 'type' => 'error',
                 'message' => 'Something went wrong. Please try again later.',

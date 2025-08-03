@@ -11,5 +11,4 @@
 @include('section.landing.landing_instructors')
 @include('section.landing.landing_testimonial')
 @include('section.landing.landing_blogs')
-
 @endsection

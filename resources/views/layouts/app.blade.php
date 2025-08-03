@@ -44,6 +44,9 @@
     @yield('head')
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
@@ -138,6 +141,7 @@
     <!--scrollup-->
 
     <x-footer />
+    <x-alert message="{{ session('message') }}" type="{{ session('type') }}" />
 
     <!-- JS here -->
     <script src="{{ asset('js/particles.min.js') }}"></script>
